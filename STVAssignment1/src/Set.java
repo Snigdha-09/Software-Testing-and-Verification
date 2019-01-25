@@ -19,10 +19,10 @@ public class Set {
         for (int i = 0; i < a.size(); i++) {
             if (a.get(i) > x) {
                 a.add(i, x);
-                break;
+                return; // break is changed to return to avoid duplicate additions
             } else {
                 if (a.get(i) == x) {
-                    break;
+                    return; // break is changed to return to avoid duplicate additions
                 }
             }
         }
@@ -60,7 +60,7 @@ public class Set {
 
     public boolean containsArithTriple() {
         for (int i = 0; i < a.size(); i++) {
-            for (int j = 0; j <= i; j++) {
+            for (int j = 0; j < i; j++) { // <= changed to <
                 if (member(2 * a.get(i) - a.get(j))) return true;
             }
         }
